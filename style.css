@@ -1,0 +1,96 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    /* Use the uploaded image as background */
+    background-image: none; /* Initially no background image */
+    background-size: cover; /* Cover the entire page */
+    background-position: center; /* Center the image */
+    background-color: #fff0f5; /* Soft Lavender Blush fallback */
+    margin: 0;
+    font-family: 'Nunito', sans-serif; /* A clean fallback font */
+    overflow: hidden; /* Hide scrollbars if YES button gets too big */
+    position: relative; /* Needed for absolute positioning of buttons if needed */
+}
+
+/* Add a semi-transparent overlay to make text more readable */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 240, 245, 0.5); /* Lavender Blush with 50% opacity */
+    z-index: 1;
+}
+
+.container {
+    text-align: center;
+    padding: 30px;
+    background-color: rgba(255, 255, 255, 0.7); /* Slightly transparent white background for content */
+    border-radius: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    z-index: 2; /* Ensure content is above the overlay */
+    position: relative; /* Ensure container stays in flow */
+}
+
+#question {
+    font-family: 'Pacifico', cursive; /* Cute, playful font */
+    font-size: 2.8em; /* Adjust size as needed */
+    color: #ff69b4; /* Hot Pink */
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Align items vertically */
+    gap: 20px; /* Space between buttons */
+}
+
+button {
+    padding: 15px 30px; /* Initial padding */
+    border: none;
+    border-radius: 50px; /* Very rounded buttons */
+    cursor: pointer;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    font-size: 1.5em; /* Initial font size */
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    transition: transform 0.2s ease, background-color 0.2s ease, padding 0.5s ease, font-size 0.5s ease; /* Smooth transitions for multiple properties */
+    min-width: 120px; /* Minimum width */
+}
+
+#yesButton {
+    background-color: #ffb6c1; /* Light Pink */
+}
+
+#noButton {
+    background-color: #ff8fab; /* Slightly darker pink */
+}
+
+#yesButton:hover {
+    background-color: #ff9eb4; /* Slightly darker on hover */
+    transform: scale(1.05);
+}
+
+#noButton:hover {
+    background-color: #ff7f9f; /* Slightly darker on hover */
+    transform: scale(1.05);
+}
+
+/* Style for when YES button grows significantly */
+#yesButton.growing {
+    position: absolute; /* Take out of flow to cover screen */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1); /* Center it */
+    z-index: 10; /* Make sure it's on top */
+    width: auto; /* Allow padding to define width */
+    height: auto; /* Allow padding to define height */
+    /* Transition will handle the gradual size increase */
+}
